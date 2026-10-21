@@ -22,8 +22,8 @@ if [ ! -x "$project_dir/.venv/bin/python" ]; then
   echo "Сначала создайте окружение: python3 -m venv .venv" >&2
   exit 1
 fi
-if ! "$project_dir/.venv/bin/python" -c "import PyInstaller" >/dev/null 2>&1; then
-  echo "Не найден PyInstaller. Выполните:" >&2
+if ! "$project_dir/.venv/bin/python" -c "import PyInstaller, dmgbuild" >/dev/null 2>&1; then
+  echo "Не найдены зависимости для сборки. Выполните:" >&2
   echo "  .venv/bin/python -m pip install -r requirements-build.txt" >&2
   exit 1
 fi
@@ -69,12 +69,13 @@ codesign --verify --deep --strict "$app"
 
 echo "4/4 · Создаю DMG с ярлыком «Программы»…"
 mkdir -p "$project_dir/dist"
-stage="$(mktemp -d /tmp/voiceshelf-dmg.XXXXXX)"
-trap 'rm -rf "$stage"' EXIT
-ditto "$app" "$stage/VoiceShelf.app"
-ln -s /Applications "$stage/Applications"
 dmg="$project_dir/dist/VoiceShelf-0.1.0-macOS-arm64.dmg"
-hdiutil create -quiet -ov -format UDZO -volname VoiceShelf -srcfolder "$stage" "$dmg"
+rm -f "$dmg"
+"$project_dir/.venv/bin/dmgbuild" \
+  -s "$project_dir/packaging/dmg-settings.py" \
+  -D "application=$app" \
+  -D "background=$project_dir/packaging/assets/dmg-background.png" \
+  VoiceShelf "$dmg"
 
 if [ "$identity" != "-" ]; then
   codesign --force --timestamp --sign "$identity" "$dmg"

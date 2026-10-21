@@ -3,7 +3,7 @@ from pathlib import Path
 from PyInstaller.utils.hooks import collect_all
 
 
-root = Path(SPECPATH).parent.parent
+root = Path(SPECPATH).parent
 datas = []
 binaries = []
 hiddenimports = []

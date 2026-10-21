@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="660" height="660" viewBox="0 0 660 660">
+  <rect width="660" height="660" fill="#F2EFE7"/>
+  <g transform="translate(0 120)">
+  <rect width="660" height="420" fill="#F2EFE7"/>
+  <rect x="0" y="0" width="660" height="8" fill="#345E43"/>
+
+  <text x="330" y="56" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, sans-serif"
+        font-size="24" font-weight="650" fill="#1B241D">Установите VoiceShelf</text>
+  <text x="330" y="84" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, sans-serif"
+        font-size="14" fill="#74786F">Перетащите приложение в папку Applications</text>
+
+  <path d="M276 218 H372" fill="none" stroke="#345E43" stroke-width="4" stroke-linecap="round"/>
+  <path d="M356 202 L374 218 L356 234" fill="none" stroke="#345E43" stroke-width="4"
+        stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g fill="#345E43" opacity="0.16">
+    <rect x="270" y="343" width="8" height="18" rx="4"/>
+    <rect x="286" y="336" width="8" height="32" rx="4"/>
+    <rect x="302" y="328" width="8" height="48" rx="4"/>
+    <rect x="318" y="340" width="8" height="24" rx="4"/>
+    <rect x="334" y="332" width="8" height="40" rx="4"/>
+    <rect x="350" y="342" width="8" height="20" rx="4"/>
+    <rect x="366" y="335" width="8" height="34" rx="4"/>
+    <rect x="382" y="344" width="8" height="16" rx="4"/>
+  </g>
+  <circle cx="408" cy="352" r="5" fill="#C8E26B"/>
+
+  <text x="330" y="400" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, sans-serif"
+        font-size="11" font-weight="600" letter-spacing="1.2" fill="#74786F">ЛОКАЛЬНО · БЕЗ ОБЛАКА</text>
+  </g>
+</svg>
